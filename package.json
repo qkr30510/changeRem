@@ -10,9 +10,14 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "node-sass": "^6.0.1",
     "nuxt": "^2.14.12",
+    "sass-loader": "^10.2.0",
+    "scss": "^0.2.4",
     "uikit": "^3.7.3-dev.af32c46e8",
     "yarn": "^1.22.11"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@nuxtjs/style-resources": "^1.2.1"
+  }
 }
