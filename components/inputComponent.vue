@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div class="center">
         <div class="uk-flex" style="margin-bottom:15px">
-            <input v-model="bodyNumber" type="number" placeholder="최상단 입력값을 넣어주세요."  class="uk-input">
+            <input v-model="bodyNumber" v-on:keyup.enter="change" type="number" placeholder="px"  class="uk-input">
             <button @click="change" class="uk-button uk-button-primary uk-width-1-3">변환하기</button>
         </div>
         <div >
@@ -13,6 +13,7 @@
                 </li>
             </ul>
         </div>
+        <button v-if="moreBtn" @click="more" class="uk-button uk-button-secondary uk-width-1-3" style="display:block; margin:auto;">more</button>
     </div>
 </template>
 
@@ -25,11 +26,12 @@ export default {
             pxNumber:'',
             remNumberWrap:false,
             numberList:[],
-
+            moreBtn:false,
         };
     },
     methods: {
         change(){
+            this.moreBtn = true;
             this.numberList = []
             this.remNumberWrap = true;
             let newNumbers = 0
@@ -39,7 +41,16 @@ export default {
                 this.numberList.push(newNumbers)
                 console.log('e',this.numberValue)
             }
-            
+        },
+        more(){
+            this.moreBtn = false
+            let newNumbers = 0
+           
+            for(let i = 30; i < 51; i++){
+                newNumbers = i/this.bodyNumber
+                this.numberList.push(newNumbers)
+                console.log('e',this.numberValue)
+            }            
         }
     },
     filters: { 
@@ -56,6 +67,14 @@ export default {
 };
 </script>
 
+<style>
+.center{
+    max-width:1100px;
+    width:100%;
+    margin:auto;
+}
+
+</style>
 
 
 
