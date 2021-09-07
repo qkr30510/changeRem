@@ -4,7 +4,7 @@
             <input v-model="bodyNumber" v-on:keyup.enter="change" type="number" placeholder="px"  class="uk-input">
             <button @click="change" class="uk-button uk-button-primary uk-width-1-3">변환하기</button>
         </div>
-        <div >
+        <div>
             <ul class="uk-list uk-list-striped">
                 <li v-for="(number, i) in numberList" v-bind:key='i' >
                     <span>{{i+8}}px</span>
@@ -22,9 +22,8 @@ export default {
     name: 'inputComponent',
     data() {
         return {
-            bodyNumber:'',
+            bodyNumber:14,
             pxNumber:'',
-            remNumberWrap:false,
             numberList:[],
             moreBtn:false,
         };
@@ -33,7 +32,6 @@ export default {
         change(){
             this.moreBtn = true;
             this.numberList = []
-            this.remNumberWrap = true;
             let newNumbers = 0
            
             for(let i = 8; i < 30; i++){
@@ -62,7 +60,7 @@ export default {
 
     },
     mounted() {
-        
+        this.change()
     },
 };
 </script>
