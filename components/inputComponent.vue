@@ -6,10 +6,14 @@
         </div>
         <div>
             <ul class="uk-list uk-list-striped">
-                <li v-for="(number, i) in numberList" v-bind:key='i' >
-                    <span>{{i+8}}px</span>
-                    <span> = </span>
-                    <span>{{number | dot}}rem</span>
+                <li v-for="(number, i) in numberList" v-bind:key='i' class="numberList" >
+                    <div>
+                        <span>{{i+8}}px</span>
+                        <span> = </span>
+                    </div>
+                    <div>
+                        <span>{{number | dot}}rem</span>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -44,7 +48,7 @@ export default {
             this.moreBtn = false
             let newNumbers = 0
            
-            for(let i = 30; i < 51; i++){
+            for(let i = 30; i < 71; i++){
                 newNumbers = i/this.bodyNumber
                 this.numberList.push(newNumbers)
                 console.log('e',this.numberValue)
@@ -71,7 +75,14 @@ export default {
     width:100%;
     margin:auto;
 }
+.numberList{
+    display: flex;
+    justify-content: flex-start;
+}
 
+.numberList div:last-child{
+    margin-left: 5px;
+}
 </style>
 
 
